@@ -1,0 +1,305 @@
+
+<style>
+.phase-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; margin-bottom: 1.5rem; }
+.phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.phase-badge { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; }
+.phase-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.phase-subtitle { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 0.75rem; }
+.tbl th { text-align: left; padding: 6px 10px; background: var(--color-background-secondary); color: var(--color-text-secondary); font-weight: 500; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.tbl td { padding: 6px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); vertical-align: top; }
+.tbl tr:last-child td { border-bottom: none; }
+.arrow-down { text-align: center; font-size: 22px; color: var(--color-text-tertiary); margin: 0.25rem 0; line-height: 1; }
+.tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500; margin-right: 4px; margin-bottom: 4px; }
+.section-label { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; margin-top: 12px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+.mini-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; }
+.mini-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.mini-body { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+.flow-connector { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0.5rem 0; }
+.flow-line { flex: 1; height: 0.5px; background: var(--color-border-secondary); }
+.flow-label { font-size: 11px; color: var(--color-text-tertiary); white-space: nowrap; }
+h2.section-h { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 1.5rem; text-align: center; }
+.top-banner { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1.5rem; text-align: center; }
+.top-banner-title { font-size: 17px; font-weight: 500; color: var(--color-text-primary); }
+.top-banner-sub { font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; }
+</style>
+
+<div style="padding: 1rem 0;">
+
+<div class="top-banner">
+  <div class="top-banner-title">EC-326 Advanced Chiplets Packaging — Unit 5 Complete Flow</div>
+  <div class="top-banner-sub">5 Phases: PoC → Technical Feasibility → Development & Design → Product Qual → PHM</div>
+</div>
+
+<!-- PHASE 1 -->
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-badge" style="background:#EEEDFE;color:#3C3489;">1</div>
+    <div>
+      <div class="phase-title">Phase 1 — Proof of Concept (PoC)</div>
+      <div class="phase-subtitle">Can this idea actually work in the real world?</div>
+    </div>
+  </div>
+
+  <div class="section-label">Key Concepts</div>
+  <table class="tbl">
+    <thead><tr><th>Concept</th><th>Definition</th><th>Analogy</th></tr></thead>
+    <tbody>
+      <tr><td><strong>PoC</strong></td><td>Small-scale test to prove an idea is feasible before full investment</td><td>Science fair project before building the real thing</td></tr>
+      <tr><td><strong>Packaging Technology</strong></td><td>Materials, design & methods to protect, enclose & connect chips</td><td>Shell of an egg protecting the yolk</td></tr>
+      <tr><td><strong>Features</strong></td><td>Distinct capabilities of a product that provide value</td><td>Phone camera, car airbag, chip processing speed</td></tr>
+      <tr><td><strong>Reliability Data Collection</strong></td><td>Systematic gathering of failure data — when, why, how often</td><td>Doctor tracking patient health over time</td></tr>
+      <tr><td><strong>FMEA</strong></td><td>Failure Mode & Effects Analysis — proactively list what can fail & prevent it</td><td>"What if" brainstorming session for engineers</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">Reliability Data Collection — Key Tests</div>
+  <table class="tbl">
+    <thead><tr><th>Test</th><th>What it checks</th></tr></thead>
+    <tbody>
+      <tr><td>Thermal Cycling</td><td>Delamination or solder bump fatigue from repeated heat/cold</td></tr>
+      <tr><td>Electromigration (EM)</td><td>Whether interconnects can handle high current density</td></tr>
+      <tr><td>Mechanical Stress</td><td>Warpage and underfill integrity under pressure</td></tr>
+      <tr><td>HAST / THB</td><td>Humidity & corrosion resistance</td></tr>
+      <tr><td>HTOL</td><td>High-Temperature Operating Life — wear-out failure analysis</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">FMEA — Types of Risks</div>
+  <div class="grid2">
+    <div class="mini-card"><div class="mini-title">Process Risks</div><div class="mini-body">Misalignment during die stacking, voids in underfill — like stacking pancakes crooked</div></div>
+    <div class="mini-card"><div class="mini-title">Material Risks</div><div class="mini-body">CTE mismatch causing warpage or cracking — like mixing clay & metal that expand differently</div></div>
+    <div class="mini-card"><div class="mini-title">Electrical Risks</div><div class="mini-body">Crosstalk, IR drop, thermomechanical stress on TSVs — like two radios interfering</div></div>
+    <div class="mini-card"><div class="mini-title">Mitigation</div><div class="mini-body">Redundant interconnects, advanced underfills, Design-for-Reliability (DfR) rules</div></div>
+  </div>
+</div>
+
+<div class="arrow-down">↓</div>
+
+<!-- PHASE 2 -->
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-badge" style="background:#E1F5EE;color:#085041;">2</div>
+    <div>
+      <div class="phase-title">Phase 2 — Technical Feasibility</div>
+      <div class="phase-subtitle">Will our design actually meet reliability goals & survive CPI risks?</div>
+    </div>
+  </div>
+
+  <div class="section-label">Reliability Targets — Key Metrics</div>
+  <table class="tbl">
+    <thead><tr><th>Metric</th><th>Definition</th><th>Example Target</th></tr></thead>
+    <tbody>
+      <tr><td><strong>MTBF</strong></td><td>Mean Time Between Failures — how long before something fails on average</td><td>&gt;1 Million hours for automotive/ML</td></tr>
+      <tr><td><strong>FIT Rate</strong></td><td>Failures per billion device-hours</td><td>&lt;10 FIT for high-reliability apps</td></tr>
+      <tr><td><strong>Thermal Stability</strong></td><td>Max junction temp & warpage allowed</td><td>Warpage &lt;50µm for large packages</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">CPI (Chiplet-Package Interaction) Risks</div>
+  <table class="tbl">
+    <thead><tr><th>Category</th><th>Risk</th><th>Cause</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="2"><strong>Mechanical</strong></td><td>Thermal Warpage</td><td>CTE mismatch between silicon & substrate</td><td>FEA simulation, low-CTE substrates</td></tr>
+      <tr><td>Stress Cracking</td><td>Underfill curing or thermal cycling stress</td><td>Stress-relief structures, compliant underfills</td></tr>
+      <tr><td rowspan="2"><strong>Thermal</strong></td><td>Localized Hotspots</td><td>Uneven power in CPU + HBM integration</td><td>Thermal vias, microfluidic cooling, TIMs</td></tr>
+      <tr><td>Thermal Crosstalk</td><td>Heat from high-power chip affects neighbor</td><td>Thermally insulating materials, layout optimization</td></tr>
+      <tr><td rowspan="2"><strong>Electrical</strong></td><td>Signal/Power Integrity</td><td>Inductive/capacitive coupling in dense interconnects</td><td>Co-design with RDL, optimized PDN</td></tr>
+      <tr><td>Parasitic Effects</td><td>High-frequency losses in interposer/TSVs</td><td>EM simulation, low-loss dielectrics</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">Evaluation Methods</div>
+  <table class="tbl">
+    <thead><tr><th>Method</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td>Accelerated Life Testing (ALT)</td><td>Simulates years of operation via thermal cycling, HAST, HTOL</td></tr>
+      <tr><td>Finite Element Analysis (FEA)</td><td>Computer simulation predicting warpage, stress & fatigue</td></tr>
+      <tr><td>FMEA</td><td>Systematic ranking of CPI risks by severity</td></tr>
+      <tr><td>In-Situ Monitoring</td><td>Embedded strain gauges & thermal diodes track real-time degradation</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="arrow-down">↓</div>
+
+<!-- PHASE 3 -->
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-badge" style="background:#FAEEDA;color:#633806;">3</div>
+    <div>
+      <div class="phase-title">Phase 3 — Development & Design</div>
+      <div class="phase-subtitle">Build it right — verify design & bake reliability into every layer</div>
+    </div>
+  </div>
+
+  <div class="section-label">Design Verification — 4 Key Activities</div>
+  <table class="tbl">
+    <thead><tr><th>Activity</th><th>Definition</th><th>Tools</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Functional Verification</strong></td><td>Validates logic of die-to-die interfaces (UCIe, BoW) & protocol compliance (PCIe/CXL)</td><td>Synopsys PrimeTime</td></tr>
+      <tr><td><strong>Physical Verification</strong></td><td>DRC & LVS checks — ensures microbump/TSV placement meets foundry specs</td><td>Cadence Sigrity</td></tr>
+      <tr><td><strong>SI/PI Analysis</strong></td><td>Models crosstalk, insertion loss, IR drop & PDN stability under load</td><td>Ansys HFSS/SIwave</td></tr>
+      <tr><td><strong>Thermal & Mechanical Simulation</strong></td><td>FEA predicts warpage & hotspots; CFD evaluates cooling solutions</td><td>Ansys, COMSOL</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">Design-for-Reliability (DfR) — Reliability Solutions</div>
+  <table class="tbl">
+    <thead><tr><th>Solution</th><th>Definition</th><th>Analogy</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Interconnect Redundancy</strong></td><td>Extra TSVs/microbumps in critical paths to survive EM failures</td><td>Spare tyre in your car</td></tr>
+      <tr><td><strong>Stress-Aware Layout</strong></td><td>Keep fragile structures away from high-stress zones</td><td>Don't put glass near the table edge</td></tr>
+      <tr><td><strong>Thermal Mitigation</strong></td><td>Integrate thermal vias, dummy bumps & microchannels for cooling</td><td>Air vents inside building walls</td></tr>
+      <tr><td><strong>Underfill & Material Selection</strong></td><td>Choose underfills with matched CTE to reduce interfacial stress</td><td>Flexible grout between tiles</td></tr>
+      <tr><td><strong>Warpage Compensation</strong></td><td>Adaptive bonding & dummy structures to balance stress</td><td>Counterweights on a seesaw</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">Reliability-Aware Design Flow — 3 Steps</div>
+  <div style="display:flex;gap:10px;margin-top:8px;">
+    <div class="mini-card" style="flex:1"><div class="mini-title">1. Early Risk Assessment</div><div class="mini-body">FMEA identifies high-risk zones (microbump fatigue, TSV cracking) on paper before production</div></div>
+    <div class="mini-card" style="flex:1"><div class="mini-title">2. Co-Design with Packaging</div><div class="mini-body">Collaborate with OSATs to optimize substrate & interposer materials together</div></div>
+    <div class="mini-card" style="flex:1"><div class="mini-title">3. Iterative Simulation Loop</div><div class="mini-body">Thermal + mechanical + electrical co-simulation — refine, simulate, repeat until solid</div></div>
+  </div>
+</div>
+
+<div class="arrow-down">↓</div>
+
+<!-- PHASE 4 -->
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-badge" style="background:#FAECE7;color:#712B13;">4</div>
+    <div>
+      <div class="phase-title">Phase 4 — Product Qualification (Qual)</div>
+      <div class="phase-subtitle">Final exam before mass production — screen weak chips & monitor long-term</div>
+    </div>
+  </div>
+
+  <div class="section-label">Early Failure Rate (EFR) — Screening Tests</div>
+  <table class="tbl">
+    <thead><tr><th>Test</th><th>Definition</th><th>What it catches</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Burn-In Testing</strong></td><td>Run chips at high voltage & temperature to accelerate early failures</td><td>Infant mortality defects</td></tr>
+      <tr><td><strong>HAST</strong></td><td>High humidity & temperature exposure</td><td>Corrosion risks</td></tr>
+      <tr><td><strong>Temperature Cycling (TC)</strong></td><td>Cycle between -55°C and 125°C repeatedly</td><td>Interconnect fatigue</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">Acceptance Criteria (Pass/Fail)</div>
+  <table class="tbl">
+    <thead><tr><th>Application</th><th>Max Allowed EFR</th></tr></thead>
+    <tbody>
+      <tr><td>Consumer Electronics (phones, laptops)</td><td>&lt; 100 DPPM (Defective Parts Per Million)</td></tr>
+      <tr><td>Automotive / Aerospace</td><td>&lt; 10 DPPM</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">Reliability Monitoring — Long-Term Methods</div>
+  <table class="tbl">
+    <thead><tr><th>Method</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td><strong>On-Chip Sensors</strong></td><td>Thermal diodes, strain gauges & EM monitors track degradation in real time</td></tr>
+      <tr><td><strong>Field Data Analysis</strong></td><td>Telemetry from deployed systems (servers, EVs) updates reliability models</td></tr>
+      <tr><td><strong>Periodic Stress Testing</strong></td><td>Sample units from production batches for ongoing HTOL/TCOB testing</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">Key Metrics Monitored</div>
+  <div class="grid2">
+    <div class="mini-card"><div class="mini-title">TDDB</div><div class="mini-body">Time-Dependent Dielectric Breakdown — oxide layer degradation tracking</div></div>
+    <div class="mini-card"><div class="mini-title">Electromigration (EM)</div><div class="mini-body">Resistance drift in power interconnects — wire damage over time</div></div>
+    <div class="mini-card"><div class="mini-title">Thermal Cycling Fatigue</div><div class="mini-body">Microbump & underfill cracking from repeated expansion/contraction</div></div>
+    <div class="mini-card"><div class="mini-title">BER Monitoring</div><div class="mini-body">Bit Error Rate — signal quality degradation in high-speed links</div></div>
+  </div>
+</div>
+
+<div class="arrow-down">↓</div>
+
+<!-- PHASE 5 -->
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-badge" style="background:#E6F1FB;color:#0C447C;">5</div>
+    <div>
+      <div class="phase-title">Phase 5 — PHM (Prognostics & Health Management)</div>
+      <div class="phase-subtitle">After the chip is sold — monitor, adapt & self-heal in the field</div>
+    </div>
+  </div>
+
+  <div class="section-label">3 Core PHM Functions</div>
+  <div style="display:flex;gap:10px;margin-top:8px;margin-bottom:12px;">
+    <div class="mini-card" style="flex:1"><div class="mini-title">A. Real-Time Monitoring</div><div class="mini-body">Detect early degradation via embedded sensors, on-die telemetry & AI/ML anomaly detection</div></div>
+    <div class="mini-card" style="flex:1"><div class="mini-title">B. Adaptive Voltage Compensation</div><div class="mini-body">Counteract aging effects — DVS, Adaptive Body Biasing & PDN Reconfiguration</div></div>
+    <div class="mini-card" style="flex:1"><div class="mini-title">C. Self-Healing & Redundancy</div><div class="mini-body">Recover from failures without downtime — spare TSVs, laser repair, chiplet failover</div></div>
+  </div>
+
+  <div class="section-label">A. Real-Time Health Monitoring — Techniques</div>
+  <table class="tbl">
+    <thead><tr><th>Technique</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Thermal Diodes</strong></td><td>Track junction temperature to prevent overheating</td></tr>
+      <tr><td><strong>Strain Sensors</strong></td><td>Detect mechanical stress — warpage, underfill cracking</td></tr>
+      <tr><td><strong>EM Monitors</strong></td><td>Measure resistance drift in power/ground interconnects</td></tr>
+      <tr><td><strong>ECC Logs</strong></td><td>Track soft errors in memory/logic chiplets</td></tr>
+      <tr><td><strong>BER Monitoring</strong></td><td>Assess signal degradation in high-speed SerDes links</td></tr>
+      <tr><td><strong>AI/ML Anomaly Detection</strong></td><td>Trained models predict failures by analyzing sensor trends before they happen</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">B. Adaptive Voltage/Frequency Compensation</div>
+  <table class="tbl">
+    <thead><tr><th>Technique</th><th>Definition</th><th>Analogy</th></tr></thead>
+    <tbody>
+      <tr><td><strong>DVS</strong> (Dynamic Voltage Scaling)</td><td>Increase supply voltage Vdd to compensate for aging-induced speed loss</td><td>Energy drink when tired at gym</td></tr>
+      <tr><td><strong>ABB</strong> (Adaptive Body Biasing)</td><td>Adjust transistor body bias to mitigate NBTI/PBTI aging effects</td><td>Changing spectacles number as eyesight weakens</td></tr>
+      <tr><td><strong>PDN Reconfiguration</strong></td><td>Reroute power if EM causes high resistance in certain interconnects</td><td>Google Maps alternate route during traffic jam</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">C. Self-Healing & Redundancy Management</div>
+  <table class="tbl">
+    <thead><tr><th>Technique</th><th>Definition</th><th>Analogy</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Spare TSVs/Microbumps</strong></td><td>Failed interconnects bypassed using pre-built redundant paths</td><td>Spare tyre when puncture occurs</td></tr>
+      <tr><td><strong>Laser/EEPROM Repair</strong></td><td>Fuses/anti-fuses reconfigure routing — used in HBM stacks</td><td>Electrician rewiring faulty switch</td></tr>
+      <tr><td><strong>Chiplet Failover</strong></td><td>Disable faulty chiplet & redistribute workloads to healthy ones</td><td>Substitute player when cricketer gets injured</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">PHM Implementation Challenges & Solutions</div>
+  <table class="tbl">
+    <thead><tr><th>Challenge</th><th>Definition</th><th>Solution</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sensor Overhead</strong></td><td>Sensors consume extra chip area & power</td><td>Ultra-compact RO-based monitors</td></tr>
+      <tr><td><strong>Cross-Chiplet Data Fusion</strong></td><td>Different chiplets produce data in different formats</td><td>IEEE 1687 IJTAG standard interface</td></tr>
+      <tr><td><strong>False Alarms</strong></td><td>Normal variations mistaken for real failures</td><td>ML-based anomaly filtering</td></tr>
+      <tr><td><strong>Security Risks</strong></td><td>PHM data can be tampered by hackers</td><td>Encrypted PHM data transmission</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-label">Future Trends in PHM</div>
+  <div class="grid2">
+    <div class="mini-card"><div class="mini-title">AI-Driven Predictive Maintenance</div><div class="mini-body">ML models forecast failures weeks in advance — like weather forecast for chips</div></div>
+    <div class="mini-card"><div class="mini-title">Chiplet-Level PHM Standards</div><div class="mini-body">UCIe/BoW interfaces will have health monitoring built-in by default</div></div>
+    <div class="mini-card"><div class="mini-title">Self-Testing Chiplets (BIST)</div><div class="mini-body">Built-in self-test — chiplets diagnose themselves autonomously like a car's OBD system</div></div>
+    <div class="mini-card"><div class="mini-title">Zero-Downtime Systems</div><div class="mini-body">Predict + compensate + repair — no unexpected failures in production</div></div>
+  </div>
+</div>
+
+<!-- FINAL SUMMARY TABLE -->
+<div class="phase-card" style="border: 0.5px solid var(--color-border-secondary);">
+  <div style="font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:1rem;">Unit 5 — Complete Phase Summary</div>
+  <table class="tbl">
+    <thead><tr><th>#</th><th>Phase</th><th>Core Question</th><th>Key Tools/Tests</th><th>Output</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>PoC</strong></td><td>Can this work?</td><td>FMEA, Thermal Cycling, HAST, HTOL</td><td>Feasibility report + early risk data</td></tr>
+      <tr><td>2</td><td><strong>Technical Feasibility</strong></td><td>Will it meet targets?</td><td>ALT, FEA, FMEA, In-Situ Monitoring</td><td>Reliability targets set, CPI risks mapped</td></tr>
+      <tr><td>3</td><td><strong>Development & Design</strong></td><td>How to build it reliably?</td><td>Cadence, Ansys, Synopsys, DfR rules</td><td>Verified design with reliability baked in</td></tr>
+      <tr><td>4</td><td><strong>Product Qual</strong></td><td>Is it ready for market?</td><td>Burn-In, HAST, TC, TDDB, EM monitoring</td><td>EFR screened — defective units removed</td></tr>
+      <tr><td>5</td><td><strong>PHM</strong></td><td>How to keep it healthy in the field?</td><td>DVS, ABB, PDN reconfig, Spare TSVs, AI/ML</td><td>Self-monitoring, adaptive, self-healing chip</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div>

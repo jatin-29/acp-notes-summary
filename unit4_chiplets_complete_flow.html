@@ -1,0 +1,258 @@
+
+<style>
+.phase-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; margin-bottom: 1.5rem; }
+.phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.phase-badge { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; }
+.phase-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.phase-subtitle { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 0.75rem; }
+.tbl th { text-align: left; padding: 6px 10px; background: var(--color-background-secondary); color: var(--color-text-secondary); font-weight: 500; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.tbl td { padding: 6px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); vertical-align: top; line-height: 1.5; }
+.tbl tr:last-child td { border-bottom: none; }
+.sec-lbl { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin: 14px 0 5px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 8px; }
+.mini { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; }
+.mini-t { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.mini-b { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+.arrow-dn { text-align: center; font-size: 20px; color: var(--color-text-tertiary); margin: 2px 0; line-height: 1; }
+.top-banner { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1.5rem; text-align: center; }
+.banner-t { font-size: 17px; font-weight: 500; color: var(--color-text-primary); }
+.banner-s { font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; }
+.step-row { display: flex; gap: 8px; margin-top: 8px; }
+.step-box { flex: 1; background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px; text-align: center; }
+.step-num { font-size: 18px; font-weight: 500; color: var(--color-text-tertiary); line-height: 1; margin-bottom: 4px; }
+.step-t { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+.step-b { font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
+hr.div { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 0 0 1rem; }
+</style>
+
+<div style="padding: 1rem 0;">
+
+<div class="top-banner">
+  <div class="banner-t">EC-326 Advanced Chiplets Packaging — Unit 4 Complete Flow</div>
+  <div class="banner-s">3 Topics: ML & AI (Condition Monitoring) → Reliability Physics (RP-based Damage Estimation) → PHM, Degradation & Failure Mechanisms</div>
+</div>
+
+<!-- TOPIC 1 -->
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-badge" style="background:#EEEDFE;color:#3C3489;">1</div>
+    <div>
+      <div class="phase-title">Topic 1 — ML & AI: Condition Monitoring & Degradation Analysis</div>
+      <div class="phase-subtitle">Using Machine Learning & AI to detect faults & predict equipment degradation before it fails</div>
+    </div>
+  </div>
+
+  <div class="sec-lbl">Core Definitions</div>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Analogy</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Condition Monitoring</strong></td><td>The process of observing a machine's state over time to detect changes that might indicate an impending failure</td><td>Doctor taking regular checkups to catch illness early</td></tr>
+      <tr><td><strong>AI-based Degradation Analysis</strong></td><td>Using AI algorithms to analyze data trends and predict when equipment will deteriorate to a critical level</td><td>Weather forecast — not just today's weather but predicting next week's storm</td></tr>
+      <tr><td><strong>Anomaly Detection</strong></td><td>Identifying unusual sensor patterns that deviate from established normal operating conditions</td><td>Security camera flagging unusual movement at 3am</td></tr>
+      <tr><td><strong>Fault Diagnosis</strong></td><td>Classifying detected anomalies into specific fault types (e.g., bearing fault, gear wear, electrical issue)</td><td>Doctor not just saying "something's wrong" but diagnosing the exact disease</td></tr>
+      <tr><td><strong>RUL Prediction</strong></td><td>Remaining Useful Life — estimating how much longer a component can operate before it is likely to fail</td><td>Fuel gauge showing how many km left before the tank is empty</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-lbl">Types of Data Collected in Condition Monitoring</div>
+  <div class="grid2">
+    <div class="mini"><div class="mini-t">Vibration data</div><div class="mini-b">Detects bearing wear, misalignment, or imbalance from changes in vibration patterns</div></div>
+    <div class="mini"><div class="mini-t">Temperature data</div><div class="mini-b">Elevated temps indicate excessive friction, electrical problems, or cooling system issues</div></div>
+    <div class="mini"><div class="mini-t">Acoustic data</div><div class="mini-b">Changes in sound signal leaks, cavitation, or changes in operational noise</div></div>
+    <div class="mini"><div class="mini-t">Lubricant analysis</div><div class="mini-b">Oil/grease testing identifies wear particles, contaminants, or viscosity changes</div></div>
+    <div class="mini"><div class="mini-t">Electrical data</div><div class="mini-b">Monitors current, voltage & power consumption to detect electrical faults</div></div>
+    <div class="mini"><div class="mini-t">Process parameters</div><div class="mini-b">Pressure, flow rate & speed from control systems indicate deviations from normal operation</div></div>
+  </div>
+
+  <div class="sec-lbl">ML in Condition Monitoring — 3 Key Tasks</div>
+  <table class="tbl">
+    <thead><tr><th>Task</th><th>Definition</th><th>Technique Used</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Anomaly Detection</strong></td><td>Find unusual patterns in sensor data deviating from normal</td><td>Clustering, statistical models, neural networks on historical data</td></tr>
+      <tr><td><strong>Fault Diagnosis</strong></td><td>Classify anomalies into specific fault types (bearing fault, gear wear, etc.)</td><td>Supervised learning trained on labeled fault data</td></tr>
+      <tr><td><strong>RUL Prediction</strong></td><td>Estimate how much longer a component can operate before failure</td><td>Regression models and time-series analysis</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-lbl">AI in Degradation Analysis — 4 Key Roles</div>
+  <table class="tbl">
+    <thead><tr><th>Role</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Identifying Degradation Patterns</strong></td><td>Analyze historical & real-time data to find trends showing gradual deterioration — rate of sensor change, anomaly frequency, vibration spectra evolution</td></tr>
+      <tr><td><strong>Predicting Future Degradation</strong></td><td>Based on identified patterns, forecast when equipment will reach a critical level requiring maintenance — moves from reactive to truly predictive maintenance</td></tr>
+      <tr><td><strong>Root Cause Analysis</strong></td><td>Analyze correlations between different sensor streams & operational parameters to pinpoint underlying causes of degradation</td></tr>
+      <tr><td><strong>Optimizing Maintenance Strategies</strong></td><td>Inform decisions on when and how to perform maintenance based on predicted degradation & RUL — minimize downtime and costs</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-lbl">How the Full AI/ML Pipeline Works — 7 Steps</div>
+  <div class="step-row">
+    <div class="step-box"><div class="step-num">1</div><div class="step-t">Data Collection</div><div class="step-b">Sensors collect data during normal operation</div></div>
+    <div class="step-box"><div class="step-num">2</div><div class="step-t">Preprocessing</div><div class="step-b">Clean, filter & transform raw data — noise reduction, feature extraction</div></div>
+    <div class="step-box"><div class="step-num">3</div><div class="step-t">Model Training</div><div class="step-b">ML trained on historical normal + fault data</div></div>
+    <div class="step-box"><div class="step-num">4</div><div class="step-t">Real-time Analysis</div><div class="step-b">Trained models analyze incoming live sensor data</div></div>
+  </div>
+  <div class="step-row" style="margin-top:6px;">
+    <div class="step-box"><div class="step-num">5</div><div class="step-t">Anomaly Detection</div><div class="step-b">Models identify anomalies & diagnose likely fault</div></div>
+    <div class="step-box"><div class="step-num">6</div><div class="step-t">Degradation Prediction</div><div class="step-b">AI analyzes trends to predict future condition & failure</div></div>
+    <div class="step-box"><div class="step-num">7</div><div class="step-t">Actionable Insights</div><div class="step-b">Alerts & reports sent to maintenance team proactively</div></div>
+  </div>
+
+  <div class="sec-lbl">Benefits of ML/AI in Condition Monitoring</div>
+  <div class="grid2">
+    <div class="mini"><div class="mini-t">Reduced Downtime</div><div class="mini-b">Predict failures before breakdown — schedule maintenance proactively</div></div>
+    <div class="mini"><div class="mini-t">Lower Maintenance Costs</div><div class="mini-b">Maintain only when needed — not on fixed schedule — reduce unnecessary work</div></div>
+    <div class="mini"><div class="mini-t">Increased Equipment Lifespan</div><div class="mini-b">Address issues early before minor problems become major failures</div></div>
+    <div class="mini"><div class="mini-t">Improved Safety</div><div class="mini-b">Predicting failures of critical components prevents hazardous situations</div></div>
+  </div>
+</div>
+
+<div class="arrow-dn">↓</div>
+
+<!-- TOPIC 2 -->
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-badge" style="background:#E1F5EE;color:#085041;">2</div>
+    <div>
+      <div class="phase-title">Topic 2 — Reliability Physics: Life-Consuming Monitoring & RP-based Damage Accumulation</div>
+      <div class="phase-subtitle">Understanding WHY components fail physically & estimating how much damage has accumulated</div>
+    </div>
+  </div>
+
+  <div class="sec-lbl">Core Definitions</div>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>Definition</th><th>Analogy</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Reliability Physics (Physics of Failure)</strong></td><td>An engineering discipline that models the physical, chemical & mechanical processes that CAUSE failure in materials, components & systems — asks WHY things fail, not just WHEN</td><td>Instead of just noting a car breaks down every 5 years, understanding that metal fatigue in the engine block is the root cause</td></tr>
+      <tr><td><strong>Life-Consuming Monitoring</strong></td><td>Operational monitoring focused on measuring the stressors & usage that directly consume a component's life — based on reliability physics principles</td><td>Car's odometer tracking km driven — each km "consumes" engine life based on physics of wear</td></tr>
+      <tr><td><strong>RP-based Damage Accumulation Estimation</strong></td><td>Using Reliability Physics models to mathematically estimate how much damage has accumulated inside a component based on measured stressors — since we cannot directly SEE damage growing inside</td><td>Estimating how much a road has deteriorated based on traffic load data — you don't dig it up to check, you calculate from physics models</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-lbl">Reliability Physics — Key Aspects</div>
+  <table class="tbl">
+    <thead><tr><th>Aspect</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Identifying Failure Mechanisms</strong></td><td>Fatigue crack growth, corrosion, wear, dielectric breakdown — the specific physical processes causing failure</td></tr>
+      <tr><td><strong>Understanding Stresses</strong></td><td>Thermal, mechanical, electrical & chemical stresses that drive these failure mechanisms</td></tr>
+      <tr><td><strong>Developing Physics Models</strong></td><td>Mathematical models relating stress, material properties & time to the progression of damage</td></tr>
+      <tr><td><strong>Goal</strong></td><td>Predict product life based on design, materials, manufacturing & expected operating environment — BEFORE extensive testing or field data is available</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-lbl">Life-Consuming Monitoring — What Gets Monitored</div>
+  <div class="grid2">
+    <div class="mini"><div class="mini-t">Load Cycles</div><div class="mini-b">For fatigue — e.g. number of stress cycles on a bridge or aircraft wing</div></div>
+    <div class="mini"><div class="mini-t">Temperature Profiles</div><div class="mini-b">For thermal degradation — e.g. temperature cycles on electronic components</div></div>
+    <div class="mini"><div class="mini-t">Vibration Intensity & Duration</div><div class="mini-b">For wear or structural fatigue — how hard and how long vibration occurs</div></div>
+    <div class="mini"><div class="mini-t">Corrosive Environment Exposure</div><div class="mini-b">For chemical degradation — how long and how intensely exposed to corrosive agents</div></div>
+    <div class="mini"><div class="mini-t">Operating Hours</div><div class="mini-b">Under specific conditions for general wear-out tracking</div></div>
+    <div class="mini"><div class="mini-t">Connection to RP</div><div class="mini-b">Life is "consumed" per the physics of dominant failure mechanisms — monitoring these tracks how much inherent life has been used up</div></div>
+  </div>
+
+  <div class="sec-lbl">RP-based Damage Accumulation Estimation — How It Works</div>
+  <table class="tbl">
+    <thead><tr><th>Component</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Damage Metric</strong></td><td>The measurable sign of damage — e.g. crack length, material loss, insulation resistance change — modeled as a function of life-consuming stressors</td></tr>
+      <tr><td><strong>Physics Model</strong></td><td>Mathematical description of how damage metric progresses based on the stressors — involves material properties & physical laws of the failure mechanism</td></tr>
+      <tr><td><strong>Kalman Filter</strong></td><td>A filtering technique used to combine physics model predictions with noisy sensor data — improves accuracy of damage estimation</td></tr>
+      <tr><td><strong>Outcome</strong></td><td>A continuously updated estimate of the current damage state or remaining life of the specific component being monitored</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="arrow-dn">↓</div>
+
+<!-- TOPIC 3 -->
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-badge" style="background:#FAEEDA;color:#633806;">3</div>
+    <div>
+      <div class="phase-title">Topic 3 — PHM, Degradation & Failure Mechanisms</div>
+      <div class="phase-subtitle">The complete discipline — monitoring degradation, understanding failure mechanisms & predicting remaining life</div>
+    </div>
+  </div>
+
+  <div class="sec-lbl">3 Core Concepts — Definitions</div>
+  <table class="tbl">
+    <thead><tr><th>Concept</th><th>Definition</th><th>Think of it as</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Degradation</strong></td><td>The process by which the performance, condition or integrity of a system, component or material deteriorates over time and/or usage</td><td>A gradual decline in health or capability — the STATE of getting worse</td></tr>
+      <tr><td><strong>Failure Mechanism</strong></td><td>The specific physical, chemical or other process that CAUSES degradation and ultimately leads to failure — it is the REASON for the degradation</td><td>The "how" or "why" behind the deterioration</td></tr>
+      <tr><td><strong>PHM (Prognostics & Health Management)</strong></td><td>An engineering discipline focused on assessing the current health of a system & predicting its future health and Remaining Useful Life (RUL)</td><td>Like a doctor's prognosis — not just diagnosing what is wrong now but predicting what will go wrong later</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-lbl">Degradation — Examples & Key Points</div>
+  <div class="grid2">
+    <div class="mini"><div class="mini-t">Examples of Degradation</div><div class="mini-b">A bearing becoming rougher · A crack growing in a structure · A battery losing charge capacity · Insulation losing dielectric strength</div></div>
+    <div class="mini"><div class="mini-t">Key Point</div><div class="mini-b">Degradation is often continuous BEFORE complete failure — it shows up as reduced efficiency, increased noise, higher temperatures, or changed vibration patterns</div></div>
+  </div>
+
+  <div class="sec-lbl">Failure Mechanisms — Types & Importance</div>
+  <table class="tbl">
+    <thead><tr><th>Failure Mechanism</th><th>Definition</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Fatigue</strong></td><td>Repeated stress cycles causing cracks to initiate and grow</td><td>Aircraft wing cracking after millions of flight cycles</td></tr>
+      <tr><td><strong>Wear</strong></td><td>Surface material being removed due to friction between surfaces</td><td>Brake pads thinning after repeated braking</td></tr>
+      <tr><td><strong>Corrosion</strong></td><td>Chemical or electrochemical reaction with environment causing material deterioration</td><td>Iron rusting when exposed to oxygen & moisture</td></tr>
+      <tr><td><strong>Creep</strong></td><td>Deformation under sustained stress at elevated temperatures</td><td>Metal turbine blades slowly elongating under high heat</td></tr>
+      <tr><td><strong>Electrical Breakdown</strong></td><td>Loss of insulating properties in electrical components</td><td>Chip oxide layer failing under high voltage stress (TDDB)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-lbl">Why Identifying Failure Mechanisms Matters</div>
+  <div class="grid3">
+    <div class="mini"><div class="mini-t">Design more reliable components</div><div class="mini-b">Mitigate the mechanism at design stage</div></div>
+    <div class="mini"><div class="mini-t">Develop effective monitoring</div><div class="mini-b">Look for signs of the specific failure mechanism</div></div>
+    <div class="mini"><div class="mini-t">Model & predict degradation rate</div><div class="mini-b">Use physics to forecast when failure will occur</div></div>
+  </div>
+
+  <div class="sec-lbl">PHM — Goal & Maintenance Approach Evolution</div>
+  <table class="tbl">
+    <thead><tr><th>Approach</th><th>Definition</th><th>Problem</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Reactive Maintenance</strong></td><td>"Fix it when it breaks" — wait for failure then repair</td><td>Unplanned downtime, safety risks, expensive emergency repairs</td></tr>
+      <tr><td><strong>Preventive Maintenance</strong></td><td>"Fix it on a schedule" — replace parts at fixed intervals regardless of condition</td><td>Wasteful — sometimes parts replaced too early, sometimes too late</td></tr>
+      <tr><td><strong>Predictive Maintenance (PHM Goal)</strong></td><td>"Fix it just before it is likely to break" — predict failure using data & models</td><td>Best approach — minimizes cost, downtime & waste</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-lbl">PHM — 4 Key Activities</div>
+  <table class="tbl">
+    <thead><tr><th>Activity</th><th>Definition</th><th>Simple Question it Answers</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Condition Monitoring</strong></td><td>Collecting data on the system's operation and condition continuously</td><td>What is the system doing right now?</td></tr>
+      <tr><td><strong>Diagnostics</strong></td><td>Identifying the current fault or degradation state from the collected data</td><td>What is wrong RIGHT NOW?</td></tr>
+      <tr><td><strong>Prognostics</strong></td><td>Predicting the future state of health & estimating Remaining Useful Life (RUL)</td><td>What is likely to go wrong LATER and WHEN?</td></tr>
+      <tr><td><strong>Health Management</strong></td><td>Using diagnostic & prognostic information to make informed decisions about maintenance, operation & logistics</td><td>What should we DO about it?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-lbl">How PHM, Degradation & Failure Mechanisms Connect</div>
+  <div class="grid3">
+    <div class="mini"><div class="mini-t">PHM monitors degradation</div><div class="mini-b">Continuously watches for signs that the system is getting worse over time</div></div>
+    <div class="mini"><div class="mini-t">Uses failure mechanism knowledge</div><div class="mini-b">Interprets data & builds models to predict how fast degradation will progress under future conditions</div></div>
+    <div class="mini"><div class="mini-t">RUL = damage threshold</div><div class="mini-b">Predicts when accumulated degradation driven by the failure mechanism will reach a critical level causing failure</div></div>
+  </div>
+</div>
+
+<!-- FINAL SUMMARY -->
+<div class="phase-card" style="border: 0.5px solid var(--color-border-secondary);">
+  <div style="font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:1rem;">Unit 4 — Complete Topic Summary</div>
+  <hr class="div">
+  <table class="tbl">
+    <thead><tr><th>#</th><th>Topic</th><th>Core Question</th><th>Key Concepts</th><th>Output/Goal</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>ML & AI — Condition Monitoring</strong></td><td>How to detect faults & predict degradation using data?</td><td>Anomaly Detection, Fault Diagnosis, RUL Prediction, 7-step AI pipeline</td><td>Predictive maintenance — fix before failure</td></tr>
+      <tr><td>2</td><td><strong>Reliability Physics — Damage Accumulation</strong></td><td>Why do components fail & how much damage has built up?</td><td>Physics of Failure, Life-Consuming Monitoring, RP Models, Kalman Filter</td><td>Continuously updated damage state estimate & remaining life</td></tr>
+      <tr><td>3</td><td><strong>PHM, Degradation & Failure Mechanisms</strong></td><td>How to manage health of systems throughout their life?</td><td>Degradation, Fatigue, Wear, Corrosion, Creep, Diagnostics, Prognostics</td><td>Move from reactive to predictive maintenance — predict RUL accurately</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:1rem;font-size:12px;color:var(--color-text-tertiary);text-align:center;">EC-326 | Unit 4 | B.Tech 6th Sem | DTU | Guest Faculty: Vikash Agrawal</div>
+</div>
+
+</div>
