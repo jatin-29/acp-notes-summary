@@ -1,0 +1,651 @@
+
+<h2 class="sr-only">EP-326 Advanced Chiplets Packaging and Reliability Engineering – Unit 3 Complete Study Guide covering 3D-IC packaging, thermal management, stress analysis, PDN, and solved numericals.</h2>
+
+<style>
+:root{--ca:#185FA5;--cab:#E6F1FB;--ct:#0F6E56;--ctb:#E1F5EE;--cam:#854F0B;--camb:#FAEEDA;--cr:#A32D2D;--crb:#FCEBEB}
+@media(prefers-color-scheme:dark){:root{--ca:#B5D4F4;--cab:#0C447C;--ct:#9FE1CB;--ctb:#085041;--cam:#FAC775;--camb:#633806;--cr:#F7C1C1;--crb:#791F1F}}
+.nav{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:0.5px solid var(--color-border-tertiary)}
+.nb{padding:5px 10px;font-size:11px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer;transition:all .15s;line-height:1.4}
+.nb.act{background:var(--cab);color:var(--ca);border-color:var(--ca)}
+.nb:hover:not(.act){background:var(--color-background-secondary)}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem}
+.card2{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.75rem 1rem;margin-bottom:0.75rem}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:1rem}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:1rem}
+.met{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.75rem 1rem;text-align:center}
+.mv{font-size:20px;font-weight:500;margin:4px 0 0}
+.ml{font-size:11px;color:var(--color-text-secondary)}
+.bg{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500}
+.bbl{background:var(--cab);color:var(--ca)}
+.btl{background:var(--ctb);color:var(--ct)}
+.bam{background:var(--camb);color:var(--cam)}
+.brd{background:var(--crb);color:var(--cr)}
+.fm{font-family:var(--font-mono);font-size:12px;background:var(--color-background-secondary);padding:10px 14px;border-radius:var(--border-radius-md);border-left:3px solid var(--ca);margin:8px 0;color:var(--color-text-primary);line-height:1.9;white-space:pre-wrap}
+.wi{border-left:3px solid var(--cam);padding:8px 12px;background:var(--camb);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;margin:8px 0;font-size:12px;color:var(--cam)}
+.dn{border-left:3px solid var(--cr);padding:8px 12px;background:var(--crb);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;margin:8px 0;font-size:12px;color:var(--cr)}
+.inf{border-left:3px solid var(--ca);padding:8px 12px;background:var(--cab);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;margin:8px 0;font-size:12px;color:var(--ca)}
+.suc{border-left:3px solid var(--ct);padding:8px 12px;background:var(--ctb);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;margin:8px 0;font-size:12px;color:var(--ct)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:7px 10px;font-weight:500;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);font-size:11px}
+td{padding:7px 10px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top}
+tr:last-child td{border-bottom:none}
+h3{font-size:14px;font-weight:500;margin:0 0 0.7rem;color:var(--color-text-primary)}
+h4{font-size:12px;font-weight:500;margin:0.7rem 0 0.4rem;color:var(--color-text-secondary)}
+p,li{font-size:12px;line-height:1.7;color:var(--color-text-primary);margin:0 0 0.4rem}
+ul{padding-left:1.2rem;margin:0 0 0.5rem}
+li{margin-bottom:3px}
+.st{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+.sn{min-width:22px;height:22px;border-radius:50%;background:var(--cab);color:var(--ca);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;margin-top:1px}
+.stl{font-size:11px;font-weight:500;color:var(--color-text-secondary);letter-spacing:.5px;text-transform:uppercase;margin:0 0 0.75rem}
+</style>
+
+<div class="nav" id="nav">
+  <button class="nb" onclick="show(0)">1. Introduction</button>
+  <button class="nb" onclick="show(1)">2. Why 3D?</button>
+  <button class="nb" onclick="show(2)">3. Package Types</button>
+  <button class="nb" onclick="show(3)">4. Components</button>
+  <button class="nb" onclick="show(4)">5. Mechanism</button>
+  <button class="nb" onclick="show(5)">6. Problem Solver</button>
+  <button class="nb" onclick="show(6)">7. Homogeneous</button>
+  <button class="nb" onclick="show(7)">8. Thermal Mgmt</button>
+  <button class="nb" onclick="show(8)">9. Stress & PDN</button>
+  <button class="nb" onclick="show(9)">10. Numericals</button>
+</div>
+
+<!-- S0: INTRODUCTION -->
+<div class="sec" id="s0">
+<p class="stl">Unit 3 — Introduction to 3D-IC Packaging</p>
+<div class="card">
+<h3>What is a 3D-IC?</h3>
+<p>A <strong>3-Dimensional Integrated Circuit (3D-IC)</strong> is a semiconductor architecture where multiple silicon wafers or dies are stacked <em>vertically</em> and interconnected using <strong>Through-Silicon Vias (TSVs)</strong>. Unlike 2D (side-by-side) or 2.5D (on interposer) packaging, 3D-IC uses the Z-axis — reducing average interconnect length, lowering parasitic resistance (R), capacitance (C), and inductance (L).</p>
+</div>
+<div class="g2">
+<div class="card">
+<h3><span class="bg bbl">3D-IC (TSV-based)</span></h3>
+<ul>
+<li>Separate, pre-fabricated dies stacked together</li>
+<li>Interconnected via TSVs (micron-scale diameter)</li>
+<li>"System-in-Package" — Macro-integration level</li>
+<li>Example: HBM stacks, Intel Foveros</li>
+</ul>
+</div>
+<div class="card">
+<h3><span class="bg btl">Monolithic 3D (M3D)</span></h3>
+<ul>
+<li>Layers built sequentially on the same wafer</li>
+<li>L0 fabricated → Si deposited → L1 fabricated above</li>
+<li>Connected via MIVs (nanometer-scale — like standard vias)</li>
+<li>"Transistor-on-Transistor" — Nano-integration level</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<h3>Key Terminology</h3>
+<table>
+<tr><th>Acronym</th><th>Full Form</th><th>Description</th></tr>
+<tr><td><span class="bg bbl">TSV</span></td><td>Through-Silicon Via</td><td>Vertical Cu-filled channel etched through Si die. Shortest vertical path between stacked dies.</td></tr>
+<tr><td><span class="bg btl">MIV</span></td><td>Monolithic Inter-tier Via</td><td>Nanometer-scale vias in M3D — comparable to standard internal chip wiring.</td></tr>
+<tr><td><span class="bg bam">RDL</span></td><td>Redistribution Layer</td><td>Multi-layer metallization that re-routes chip pads from fine pitch to coarse substrate pitch.</td></tr>
+<tr><td><span class="bg brd">KOZ</span></td><td>Keep-Out Zone</td><td>Exclusion region around TSV where timing-critical transistors cannot be placed (due to stress).</td></tr>
+<tr><td><span class="bg bbl">HBM</span></td><td>High Bandwidth Memory</td><td>Stacked DRAM dies connected to logic die via TSVs; &gt;1024-bit bus width.</td></tr>
+<tr><td><span class="bg bam">DRIE</span></td><td>Deep Reactive Ion Etching</td><td>Plasma etching process used to create deep, high-aspect-ratio TSV holes in silicon.</td></tr>
+</table>
+</div>
+<div class="inf">Key insight: TSVs = Macro-integration (die stacking); MIVs = Nano-integration (transistor stacking). Fundamentally different scales and processes.</div>
+</div>
+
+<!-- S1: WHY 3D -->
+<div class="sec" id="s1">
+<p class="stl">Motivation — Why Move from 2D to 3D?</p>
+<div class="g3">
+<div class="met"><div class="ml">Interconnect length</div><div class="mv" style="color:var(--ca)">mm → μm</div><div class="ml">200× reduction possible</div></div>
+<div class="met"><div class="ml">Power savings</div><div class="mv" style="color:var(--ct)">25–40%</div><div class="ml">vs 2D equivalent</div></div>
+<div class="met"><div class="ml">Memory bus width</div><div class="mv" style="color:var(--cam)">&gt;1024 bits</div><div class="ml">HBM vs 64-bit DDR</div></div>
+</div>
+<div class="g2">
+<div class="card">
+<h3>A. Interconnect Bottleneck (RC Delay)</h3>
+<p>In complex 2D designs, signals travel long distances across substrate/PCB. Long wires → high resistance (R) and capacitance (C) → high RC delay → limits speed and wastes power.</p>
+<div class="fm">Delay  τ ∝ R × C ∝ Wire_Length²
+Stacking: d_z (vertical) ≪ d_x,y (horizontal)</div>
+<p>3D stacking reduces the signal path from <strong>millimeters to micrometers</strong>.</p>
+</div>
+<div class="card">
+<h3>B. Memory Bandwidth Wall</h3>
+<p>Modern CPUs/GPUs need massive memory bandwidth but side-by-side connections limit parallel I/O pins. This is the "Memory Wall" — high latency from off-chip DRAM access.</p>
+<div class="inf">HBM Solution: Stack DRAM dies vertically on logic die via TSVs → &gt;1024-bit bus, near-zero latency, 500+ GB/s bandwidth.</div>
+</div>
+</div>
+<div class="card">
+<h3>C. Power Consumption</h3>
+<p>Shorter interconnects mean lower capacitance to charge/discharge each cycle, reducing dynamic power:</p>
+<div class="fm">P ≈ C_load × V² × f
+
+Shorter wire → less C_load → 25–40% less power consumption</div>
+</div>
+<div class="card">
+<h3>D. Heterogeneous Integration ("More than Moore")</h3>
+<p>Different functions are manufactured optimally on specialized process nodes, then combined:</p>
+<table>
+<tr><th>Function</th><th>Best Process</th><th>Reason</th></tr>
+<tr><td>CPU / Logic cores</td><td>3nm, 5nm (advanced)</td><td>Needs highest transistor density</td></tr>
+<tr><td>Analog / RF</td><td>28nm, 65nm (mature)</td><td>Analog doesn't scale well; cost-efficient</td></tr>
+<tr><td>Dense DRAM</td><td>Specialized DRAM node</td><td>Capacitor structures differ from logic</td></tr>
+<tr><td>I/O Die</td><td>14nm–28nm (mature)</td><td>Needs high-voltage tolerance; cheaper</td></tr>
+</table>
+<p style="margin-top:8px;font-size:11px;color:var(--color-text-secondary)">Example: AMD Ryzen/EPYC — CPU core dies (advanced node) + I/O die (mature node) on one package substrate</p>
+</div>
+<div class="card">
+<h3>2D vs 3D — Summary Comparison</h3>
+<table>
+<tr><th>Parameter</th><th>2D IC</th><th>3D IC</th></tr>
+<tr><td>Interconnect length</td><td>Millimeters</td><td>Micrometers</td></tr>
+<tr><td>RC delay</td><td>High (bottleneck)</td><td>Dramatically reduced</td></tr>
+<tr><td>Power</td><td>Higher</td><td>25–40% lower</td></tr>
+<tr><td>Footprint</td><td>Large 2D area</td><td>Small vertical stack</td></tr>
+<tr><td>Memory bandwidth</td><td>~64-bit DDR bus</td><td>&gt;1024-bit HBM bus</td></tr>
+<tr><td>Heat dissipation</td><td>Through top surface (easy)</td><td>Vertical stack (complex)</td></tr>
+<tr><td>Manufacturing</td><td>Simpler, mature</td><td>Complex, evolving</td></tr>
+</table>
+</div>
+</div>
+
+<!-- S2: PACKAGE TYPES -->
+<div class="sec" id="s2">
+<p class="stl">Types of Chiplet Packaging</p>
+<div class="g3">
+<div class="card"><h3><span class="bg bam">2D</span> Packaging</h3><p>Chiplets placed <strong>side-by-side</strong> on a common substrate. Coarser interconnects; simpler manufacturing.</p><p style="font-size:11px;color:var(--color-text-secondary)">Example: Basic multi-chip modules</p></div>
+<div class="card"><h3><span class="bg bbl">2.5D</span> Packaging</h3><p>Chiplets on a <strong>silicon interposer</strong> that provides high-density horizontal RDL wiring. No direct die stacking.</p><p style="font-size:11px;color:var(--color-text-secondary)">Example: AMD EPYC, NVIDIA A100</p></div>
+<div class="card"><h3><span class="bg btl">3D</span> Packaging</h3><p>Chiplets stacked <strong>vertically</strong> with TSVs for inter-die connection. Highest density, shortest paths.</p><p style="font-size:11px;color:var(--color-text-secondary)">Example: HBM, Intel Foveros</p></div>
+</div>
+<div class="card">
+<h3>Package Stack Architecture — Block Diagram</h3>
+<svg viewBox="0 0 680 310" width="100%" style="display:block;overflow:visible">
+  <!-- PCB -->
+  <rect x="130" y="265" width="440" height="28" rx="4" fill="var(--camb)" stroke="var(--cam)" stroke-width="0.5"/>
+  <text x="350" y="279" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--cam)" font-weight="500">Printed Circuit Board (PCB)</text>
+  <!-- Solder balls -->
+  <circle cx="175" cy="258" r="6" fill="var(--color-text-secondary)" opacity="0.4"/>
+  <circle cx="222" cy="258" r="6" fill="var(--color-text-secondary)" opacity="0.4"/>
+  <circle cx="269" cy="258" r="6" fill="var(--color-text-secondary)" opacity="0.4"/>
+  <circle cx="316" cy="258" r="6" fill="var(--color-text-secondary)" opacity="0.4"/>
+  <circle cx="363" cy="258" r="6" fill="var(--color-text-secondary)" opacity="0.4"/>
+  <circle cx="410" cy="258" r="6" fill="var(--color-text-secondary)" opacity="0.4"/>
+  <circle cx="457" cy="258" r="6" fill="var(--color-text-secondary)" opacity="0.4"/>
+  <circle cx="504" cy="258" r="6" fill="var(--color-text-secondary)" opacity="0.4"/>
+  <circle cx="551" cy="258" r="6" fill="var(--color-text-secondary)" opacity="0.4"/>
+  <!-- Substrate -->
+  <rect x="130" y="207" width="440" height="46" rx="4" fill="var(--ctb)" stroke="var(--ct)" stroke-width="0.5"/>
+  <text x="350" y="230" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--ct)" font-weight="500">Package Substrate (Organic / Ceramic)</text>
+  <!-- Interposer -->
+  <rect x="140" y="147" width="420" height="52" rx="4" fill="var(--cab)" stroke="var(--ca)" stroke-width="0.5"/>
+  <text x="340" y="173" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--ca)" font-weight="500">Silicon Interposer + RDL</text>
+  <!-- TSVs left cluster -->
+  <line x1="195" y1="147" x2="195" y2="199" stroke="var(--ca)" stroke-width="2.5" opacity="0.75"/>
+  <line x1="220" y1="147" x2="220" y2="199" stroke="var(--ca)" stroke-width="2.5" opacity="0.75"/>
+  <line x1="245" y1="147" x2="245" y2="199" stroke="var(--ca)" stroke-width="2.5" opacity="0.75"/>
+  <!-- TSVs right cluster -->
+  <line x1="445" y1="147" x2="445" y2="199" stroke="var(--ca)" stroke-width="2.5" opacity="0.75"/>
+  <line x1="467" y1="147" x2="467" y2="199" stroke="var(--ca)" stroke-width="2.5" opacity="0.75"/>
+  <line x1="489" y1="147" x2="489" y2="199" stroke="var(--ca)" stroke-width="2.5" opacity="0.75"/>
+  <!-- Micro-bumps chiplet 1 -->
+  <circle cx="175" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="196" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="217" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="238" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="259" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="280" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="301" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <!-- Micro-bumps chiplet 2 -->
+  <circle cx="390" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="411" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="432" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="453" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="474" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="495" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <circle cx="516" cy="139" r="3.5" fill="var(--color-border-secondary)" opacity="0.8"/>
+  <!-- Chiplet 1 -->
+  <rect x="155" y="55" width="175" height="76" rx="6" fill="var(--color-background-secondary)" stroke="var(--color-border-primary)" stroke-width="0.5"/>
+  <text x="242" y="85" text-anchor="middle" dominant-baseline="central" font-size="13" fill="var(--color-text-primary)" font-weight="500">Chiplet 1</text>
+  <text x="242" y="104" text-anchor="middle" dominant-baseline="central" font-size="11" fill="var(--color-text-secondary)">CPU / Logic Die</text>
+  <!-- Chiplet 2 -->
+  <rect x="370" y="55" width="175" height="76" rx="6" fill="var(--color-background-secondary)" stroke="var(--color-border-primary)" stroke-width="0.5"/>
+  <text x="457" y="85" text-anchor="middle" dominant-baseline="central" font-size="13" fill="var(--color-text-primary)" font-weight="500">Chiplet 2</text>
+  <text x="457" y="104" text-anchor="middle" dominant-baseline="central" font-size="11" fill="var(--color-text-secondary)">Memory (HBM)</text>
+  <!-- Right-side labels -->
+  <line x1="305" y1="139" x2="345" y2="139" stroke="var(--color-border-secondary)" stroke-width="0.5" stroke-dasharray="3 2"/>
+  <text x="350" y="133" text-anchor="start" font-size="10" fill="var(--color-text-secondary)">Micro-bumps</text>
+  <line x1="557" y1="258" x2="565" y2="258" stroke="var(--color-border-secondary)" stroke-width="0.5" stroke-dasharray="3 2"/>
+  <text x="567" y="252" text-anchor="start" font-size="10" fill="var(--color-text-secondary)">Solder balls</text>
+  <text x="497" y="162" text-anchor="start" font-size="10" fill="var(--ca)">↕ TSVs</text>
+</svg>
+<p style="font-size:11px;color:var(--color-text-secondary);margin-top:4px">Signal/power flow: Chiplets → Micro-bumps → Interposer (RDL routing) → TSVs → Substrate → Solder Balls → PCB</p>
+</div>
+</div>
+
+<!-- S3: COMPONENTS / STRUCTURE -->
+<div class="sec" id="s3">
+<p class="stl">Key Components — Detailed Structure</p>
+<div class="card">
+<h3>Component Comparison Table</h3>
+<table>
+<tr><th>Component</th><th>Material</th><th>Location</th><th>Role in Package</th></tr>
+<tr><td><span class="bg bam">Substrate</span></td><td>Organic or Ceramic</td><td>Bottom foundation</td><td>Mechanical support; routes signals chip package → PCB via solder balls. Coarse-pitch wiring.</td></tr>
+<tr><td><span class="bg bbl">Interposer</span></td><td>Silicon (or Organic)</td><td>Between chiplets and substrate</td><td>High-density bridge. Fine RDL wiring connects chiplets horizontally (used in 2.5D). May contain TSVs.</td></tr>
+<tr><td><span class="bg btl">TSV</span></td><td>Copper (Cu) or Tungsten</td><td>Through silicon layers vertically</td><td>Enables vertical stacking. Reduces signal delay and package footprint. Core to 3D integration.</td></tr>
+<tr><td><span class="bg brd">Micro-bumps</span></td><td>Solder (SnAg)</td><td>Chiplet ↔ interposer interface</td><td>30–50 μm pitch connections. Finer than conventional C4 bumps. Enable high-density die attachment.</td></tr>
+<tr><td><span class="bg bbl">RDL</span></td><td>Cu + dielectric</td><td>On chip / interposer surfaces</td><td>Multi-layer metallization. Translates ultra-fine chip pad pitch → coarser substrate/interposer pitch.</td></tr>
+</table>
+</div>
+<div class="card">
+<h3>TSV Physical Structure (Compact Model)</h3>
+<div class="g2">
+<div>
+<h4>TSV Cross-Section — 3 Key Layers</h4>
+<div class="st"><div class="sn">1</div><div><p><strong>Copper Fill (Core):</strong> Main conductor — electroplated Cu. Carries primary current. Has resistivity ρ = 1.7×10⁻⁸ Ω·m.</p></div></div>
+<div class="st"><div class="sn">2</div><div><p><strong>Dielectric Isolation Liner:</strong> SiO₂ barrier between Cu and Si. Prevents Cu diffusion. Thickness determines parasitic capacitance (C_TSV).</p></div></div>
+<div class="st"><div class="sn">3</div><div><p><strong>Silicon Bulk:</strong> Semi-conductive surrounding medium. Introduces substrate loss. TSVs couple to neighbors through this lossy Si bulk.</p></div></div>
+</div>
+<div>
+<h4>Parasitic Electrical Model</h4>
+<div class="fm">R_TSV = ρ × L / A        (DC resistance)
+C_TSV = 2πεL / ln(r_out/r_in) (capacitance)
+L_TSV = μ₀L/(2π) × ln(r_out/r_in) (inductance)
+
+Signal delay:
+τ = 0.5 × R_TSV × C_TSV</div>
+<div class="wi">TSV is NOT a simple wire — it is a frequency-dependent coaxial conductor. Behavior changes significantly from 1 GHz to 10 GHz (skin effect).</div>
+</div>
+</div>
+</div>
+<div class="card">
+<h3>RDL — Redistribution Layer Functions</h3>
+<div class="g3">
+<div class="card2"><h4>Pitch Translation</h4><p>Chip pad pitch: ~10–30 μm → Interposer: ~50–100 μm → Substrate: 100–200 μm. Gradual fan-out of signals.</p></div>
+<div class="card2"><h4>Signal Routing</h4><p>High-density horizontal pathways between chiplets (e.g., CPU ↔ HBM). Multiple metal layers with dielectric insulation.</p></div>
+<div class="card2"><h4>Power/Ground Planes</h4><p>Dedicated Cu planes for uniform power distribution. Minimizes IR drop (V = I×R) across the chip.</p></div>
+</div>
+</div>
+<div class="card">
+<h3>Multi-Physics Compact Modeling Requirements</h3>
+<table>
+<tr><th>Physics Domain</th><th>Key Parameter</th><th>Why it matters</th></tr>
+<tr><td>Electrical</td><td>R, L, C (frequency-dependent)</td><td>Signal integrity; timing closure</td></tr>
+<tr><td>Thermal</td><td>k (thermal conductivity), Rθ</td><td>Temperature affects leakage current and resistivity</td></tr>
+<tr><td>Mechanical</td><td>CTE mismatch, σ (stress)</td><td>Stress changes carrier mobility (piezoresistive effect)</td></tr>
+</table>
+<div class="inf">Complete 3D-IC compact model must integrate electrical + thermal + mechanical — these three domains are tightly coupled and cannot be analyzed in isolation.</div>
+</div>
+</div>
+
+<!-- S4: WORKING MECHANISM -->
+<div class="sec" id="s4">
+<p class="stl">Working Mechanism of 3D-IC</p>
+<div class="card">
+<h3>TSV Fabrication Process — Step by Step</h3>
+<div class="st"><div class="sn">1</div><div><p><strong>Via Etch:</strong> Deep holes etched into silicon wafer using DRIE (Deep Reactive Ion Etching). Creates high-aspect-ratio vertical channels.</p></div></div>
+<div class="st"><div class="sn">2</div><div><p><strong>Liner Deposition:</strong> Thin SiO₂ isolation liner deposited on via walls. Electrically isolates the Cu fill from Si substrate.</p></div></div>
+<div class="st"><div class="sn">3</div><div><p><strong>Seed Layer + Cu Fill:</strong> Thin seed layer deposited, then Cu electroplated to fill the via. Excess Cu removed by CMP (Chemical Mechanical Polishing).</p></div></div>
+<div class="st"><div class="sn">4</div><div><p><strong>Wafer Thinning (Backgrind):</strong> Wafer backside is thinned to expose the TSV tips. Brings TSV depth to final target (typically 50–100 μm).</p></div></div>
+<div class="st"><div class="sn">5</div><div><p><strong>Die Alignment & Bonding:</strong> Dies precisely aligned and bonded using micro-bumps (solder) or Hybrid Bonding (direct Cu-to-Cu, no solder, sub-10μm pitch).</p></div></div>
+<div class="st"><div class="sn">6</div><div><p><strong>Signal Operation:</strong> Electrons flow vertically through the Cu-filled TSV stack from die to die. Delay governed by the RC product of the TSV.</p></div></div>
+</div>
+<div class="card">
+<h3>Signal Flow — 3D Stack Architecture</h3>
+<svg viewBox="0 0 680 225" width="100%" style="display:block">
+  <!-- Die 1 top -->
+  <rect x="100" y="20" width="200" height="55" rx="6" fill="var(--color-background-secondary)" stroke="var(--color-border-primary)" stroke-width="0.5"/>
+  <text x="200" y="42" text-anchor="middle" dominant-baseline="central" font-size="13" fill="var(--color-text-primary)" font-weight="500">Die 1 — Logic / CPU</text>
+  <text x="200" y="60" text-anchor="middle" dominant-baseline="central" font-size="11" fill="var(--color-text-secondary)">Active transistors, circuits</text>
+  <!-- TSV 1 -->
+  <rect x="183" y="75" width="34" height="26" rx="2" fill="var(--cab)" stroke="var(--ca)" stroke-width="0.5"/>
+  <text x="200" y="88" text-anchor="middle" dominant-baseline="central" font-size="10" fill="var(--ca)" font-weight="500">TSV</text>
+  <!-- Die 2 middle -->
+  <rect x="100" y="101" width="200" height="55" rx="6" fill="var(--color-background-secondary)" stroke="var(--color-border-primary)" stroke-width="0.5"/>
+  <text x="200" y="123" text-anchor="middle" dominant-baseline="central" font-size="13" fill="var(--color-text-primary)" font-weight="500">Die 2 — Memory</text>
+  <text x="200" y="141" text-anchor="middle" dominant-baseline="central" font-size="11" fill="var(--color-text-secondary)">DRAM layer (HBM die)</text>
+  <!-- TSV 2 -->
+  <rect x="183" y="156" width="34" height="26" rx="2" fill="var(--cab)" stroke="var(--ca)" stroke-width="0.5"/>
+  <text x="200" y="169" text-anchor="middle" dominant-baseline="central" font-size="10" fill="var(--ca)" font-weight="500">TSV</text>
+  <!-- Die 3 base -->
+  <rect x="100" y="182" width="200" height="32" rx="6" fill="var(--color-background-secondary)" stroke="var(--color-border-primary)" stroke-width="0.5"/>
+  <text x="200" y="198" text-anchor="middle" dominant-baseline="central" font-size="12" fill="var(--color-text-primary)" font-weight="500">Die 3 — Base / I/O Die</text>
+  <!-- Right side annotations -->
+  <rect x="380" y="25" width="250" height="90" rx="8" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+  <text x="505" y="46" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)" font-weight="500">Signal delay formula</text>
+  <text x="395" y="67" font-size="11" fill="var(--color-text-primary)" font-family="monospace">τ = 0.5 × R_tsv × C_tsv</text>
+  <text x="395" y="86" font-size="10" fill="var(--color-text-secondary)">R_tsv = ρ × L / A</text>
+  <text x="395" y="101" font-size="10" fill="var(--color-text-secondary)">C_tsv = f (liner thickness)</text>
+  <!-- Right: Physical rule -->
+  <rect x="380" y="130" width="250" height="65" rx="8" fill="var(--cab)" stroke="var(--ca)" stroke-width="0.5"/>
+  <text x="505" y="150" text-anchor="middle" font-size="11" fill="var(--ca)" font-weight="500">Physical Rule</text>
+  <text x="395" y="168" font-size="11" fill="var(--ca)">d_z (vertical) ≪ d_x,y (horizontal)</text>
+  <text x="395" y="184" font-size="10" fill="var(--ca)">e.g., 10 mm → 50 μm (200× shorter)</text>
+  <!-- Connector lines -->
+  <line x1="302" y1="48" x2="378" y2="60" stroke="var(--color-border-secondary)" stroke-width="0.5" stroke-dasharray="3 2"/>
+  <line x1="302" y1="155" x2="378" y2="162" stroke="var(--ca)" stroke-width="0.5" stroke-dasharray="3 2"/>
+</svg>
+</div>
+<div class="card">
+<h3>Bonding Techniques Comparison</h3>
+<table>
+<tr><th>Method</th><th>Pitch</th><th>How it works</th><th>Use case</th></tr>
+<tr><td>Micro-bumps</td><td>30–50 μm</td><td>Tiny solder bumps connecting die faces</td><td>Standard 3D stacking, HBM</td></tr>
+<tr><td>Hybrid Bonding</td><td>&lt;10 μm</td><td>Direct Cu-to-Cu contact; no solder needed</td><td>Ultra-high density; CMOS image sensors</td></tr>
+<tr><td>Package-on-Package (PoP)</td><td>~400 μm</td><td>Complete packages stacked via peripheral solder balls</td><td>Smartphones: Application Processor + LPDDR</td></tr>
+<tr><td>Face-to-Face (F2F)</td><td>&lt;5 μm</td><td>Two dies bonded face-to-face; microbumps on active surfaces</td><td>Intel Foveros stacked logic</td></tr>
+</table>
+</div>
+</div>
+
+<!-- S5: PROBLEM SOLVER -->
+<div class="sec" id="s5">
+<p class="stl">3D-IC as a Problem Solver</p>
+<div class="card">
+<h3>A. Interconnect Bottleneck (RC Delay)</h3>
+<p>In monolithic 2D chips, global wires grow longer as the chip grows — unavoidable in pure scaling. This raises both R (resistance) and C (capacitance) of the wire.</p>
+<div class="fm">τ_RC = R_wire × C_wire ∝ L²  (delay scales with SQUARE of length!)
+
+2D: signal path = 10 mm  → τ very large
+3D: signal path = 50 μm  → τ reduced 40,000× (proportional to L²)</div>
+<div class="inf">Physical rule: In 3D, d_z (vertical) ≪ d_x,y (horizontal distance in 2D). Blocks that were mm apart are now μm apart.</div>
+</div>
+<div class="card">
+<h3>B. Memory Wall</h3>
+<p>High-performance computing is bottlenecked by fetching data from off-chip DRAM — the "Memory Wall." This is caused by limited I/O pins and high latency of long wires.</p>
+<div class="g2">
+<div class="card2">
+<h4>Traditional DDR (2D)</h4>
+<ul>
+<li>64-bit wide memory bus</li>
+<li>~100 ns access latency</li>
+<li>~50 GB/s peak bandwidth</li>
+<li>Separate package, long PCB traces</li>
+</ul>
+</div>
+<div class="card2">
+<h4>HBM 3D Stacking</h4>
+<ul>
+<li>&gt;1024-bit wide bus</li>
+<li>Near-zero latency</li>
+<li>500–1000+ GB/s bandwidth</li>
+<li>Stacked directly on logic die via TSVs</li>
+</ul>
+</div>
+</div>
+<p style="font-size:11px;color:var(--color-text-secondary)">Real-world use: AMD Instinct MI300X, NVIDIA H100, Google TPU v4, Apple M-series all use HBM or stacked memory</p>
+</div>
+<div class="card">
+<h3>C. Power Scaling</h3>
+<p>Communication over long wires dissipates energy every clock cycle. The power dissipated by a wire:</p>
+<div class="fm">P_interconnect = A × C_load × V² × f
+
+Shorter wire → C_load ↓ → P_interconnect ↓
+
+3D-IC achieves 25–40% total system power reduction vs equivalent 2D design</div>
+<div class="wi">Every 2× reduction in wire length → ~4× reduction in wire capacitance → significant power savings!</div>
+</div>
+<div class="card">
+<h3>D. Form Factor</h3>
+<p>Stacking allows more functionality in a smaller package footprint, essential for mobile devices and dense computing systems. Instead of a large 2D chip, multiple smaller dies are stacked vertically in the same XY area.</p>
+<div class="suc">Example: Smartphone application processors use PoP stacking — the logic chip and LPDDR memory are stacked in a package barely larger than a postage stamp.</div>
+</div>
+</div>
+
+<!-- S6: HOMOGENEOUS -->
+<div class="sec" id="s6">
+<p class="stl">3D-ICs as Homogeneous Assemblies</p>
+<div class="card">
+<h3>What is a Homogeneous 3D-IC?</h3>
+<p>A Homogeneous 3D-IC consists of <strong>multiple identical dies</strong> stacked together. The most common example is <strong>HBM (High Bandwidth Memory)</strong> — 4 to 12 layers of the exact same DRAM die, stacked vertically and interconnected via TSVs.</p>
+<div class="g3">
+<div class="met"><div class="ml">Yield advantage</div><div class="mv" style="color:var(--ct)">High</div><div class="ml">Small dies = exponentially better yield</div></div>
+<div class="met"><div class="ml">Scalability</div><div class="mv" style="color:var(--ca)">Linear</div><div class="ml">Add layers for more capacity</div></div>
+<div class="met"><div class="ml">Redundancy</div><div class="mv" style="color:var(--cam)">Possible</div><div class="ml">Bypass faulty die via LoB</div></div>
+</div>
+</div>
+<div class="card">
+<h3>Advantages in Detail</h3>
+<div class="st"><div class="sn">1</div><div><p><strong>Yield Advantage:</strong> Manufacturing yield drops exponentially with die area. It is far easier to produce 8 small, high-yield memory dies than one massive monolithic memory chip of equivalent total capacity. Each small die has far fewer defects.</p></div></div>
+<div class="st"><div class="sn">2</div><div><p><strong>Linear Scalability:</strong> Performance or storage capacity scales linearly by adding more layers. HBM comes in 4-Hi, 8-Hi, 12-Hi stack configurations. Each additional layer adds directly to total bandwidth and capacity.</p></div></div>
+<div class="st"><div class="sn">3</div><div><p><strong>Redundancy via LoB:</strong> A Logic-on-Base (LoB) controller die at the stack base can reconfigure the stack to bypass a faulty die layer. Advanced error correction (ECC) is also embedded within the stack.</p></div></div>
+</div>
+<div class="card">
+<h3>Engineering Challenges & Solutions Summary Table</h3>
+<table>
+<tr><th>Feature</th><th>Physical Impact</th><th>Engineering Solution</th></tr>
+<tr><td>TSV Interconnect</td><td>Reduces RC Delay significantly</td><td>DRIE etching + Cu Electroplating</td></tr>
+<tr><td>Vertical Stacking</td><td>Increases memory bandwidth</td><td>HBM: High Bandwidth Memory architecture</td></tr>
+<tr><td>CTE Mismatch (Cu vs Si)</td><td>Thermomechanical stress in Si</td><td>Stress-buffer underfills; Keep-Out Zones (KOZ)</td></tr>
+<tr><td>Heat Trapping</td><td>Increased junction temperature</td><td>Thermal TSVs (Cu-filled dummy vias for heat spreading)</td></tr>
+<tr><td>Power density</td><td>W/cm² adds per layer stacked</td><td>Thermal-aware floorplanning; advanced cooling</td></tr>
+<tr><td>Testability</td><td>Can't probe buried dies</td><td>IEEE 1149.1 boundary scan; 3D-DFT techniques</td></tr>
+</table>
+<p style="font-size:11px;color:var(--color-text-secondary);margin-top:6px">CTE = Coefficient of Thermal Expansion. Cu: 17 ppm/°C, Si: 2.3 ppm/°C → large mismatch causes stress around TSVs.</p>
+</div>
+</div>
+
+<!-- S7: THERMAL -->
+<div class="sec" id="s7">
+<p class="stl">Challenges: Thermal Management in 3D-ICs</p>
+<div class="dn" style="margin-bottom:1rem">Thermal management is the primary physical constraint preventing unlimited 3D stacking.</div>
+<div class="card">
+<h3>A. Power Density Concentration</h3>
+<p>In 2D: heat dissipates through one top surface area. In 3D: each stacked layer generates power, but the heatsink footprint (XY area) stays the same as a single die.</p>
+<div class="fm">Total Power:  P_total = P₁ + P₂ + ... + Pₙ = Σ Pᵢ
+
+Example: 4 layers, each 10W → P_total = 40W
+But cooling area is the same as for ONE 10W die!
+
+Power density QUADRUPLES while cooling area stays constant.</div>
+</div>
+<div class="card">
+<h3>B. Vertical Thermal Resistance (Rθ)</h3>
+<p>Heat from the bottom die must pass through multiple layers of silicon, inter-layer dielectric (ILD), and bonding adhesives before reaching the heatsink. Each layer adds thermal resistance.</p>
+<div class="fm">T_j = T_ambient + P × (R_pkg + R_die + R_bond)
+
+Thermal conductivity:
+  Si:              150 W/mK   ← good conductor
+  Cu (TSV):        400 W/mK   ← excellent conductor
+  Underfill/BCB:   0.2 W/mK   ← very poor! thermal insulator</div>
+<div class="wi">Bonding layers (underfill/adhesive) act as thermal insulators (k ≈ 0.2 W/mK). They trap heat between dies — a major design challenge.</div>
+</div>
+<div class="card">
+<h3>C. Thermal Crosstalk</h3>
+<p>A localized "Hot Spot" in the bottom logic die generates heat that conducts vertically upward — heating the memory die stacked above. This causes timing failures in the memory circuits (temperature changes propagation delay).</p>
+<div class="g2">
+<div class="card2">
+<h4>Problem</h4>
+<p>Hot spot in logic die → heat conducts up → memory die temperature rises → transistor threshold voltage shifts → timing violation (setup/hold)</p>
+</div>
+<div class="card2">
+<h4>Solution: Thermal-Aware Floorplanning</h4>
+<p>High-power logic blocks are physically <strong>offset</strong> between die layers, so hot spots in one die do not directly align with timing-critical circuits in adjacent die layers.</p>
+</div>
+</div>
+</div>
+<div class="card">
+<h3>D. Fourier's Law & Thermal Runaway</h3>
+<div class="fm">Fourier's Law of Heat Flux:
+  q = -k × ∇T
+
+  q   = heat flux (W/m²)
+  k   = thermal conductivity (W/mK)
+  ∇T  = temperature gradient (K/m)
+
+In 3D-IC: if k is low AND q is high → ∇T becomes VERY large</div>
+<div class="dn">
+Thermal Runaway Mechanism:<br>
+High Temperature → Higher leakage (I_leak ∝ e^(-Eg/kT)) → More heat generated → Even higher temperature → Runaway failure!
+</div>
+</div>
+<div class="card">
+<h3>Thermal Management Solutions</h3>
+<table>
+<tr><th>Challenge</th><th>Solution</th><th>Mechanism</th></tr>
+<tr><td>Heat trapping between dies</td><td>Thermal TSVs (dummy Cu vias)</td><td>Cu (400 W/mK) conducts heat vertically through stack</td></tr>
+<tr><td>Localized hot spots</td><td>Thermal-aware floorplanning</td><td>Offset high-power blocks between adjacent layers</td></tr>
+<tr><td>Poor bonding conductivity</td><td>High-k underfill materials</td><td>Use thermally conductive adhesives instead of BCB</td></tr>
+<tr><td>Thermal runaway risk</td><td>Dynamic Thermal Management (DTM)</td><td>On-chip temperature sensors + throttling + DVFS</td></tr>
+<tr><td>Inadequate heatsink</td><td>Integrated microfluidic cooling</td><td>Liquid coolant channels etched into silicon layers</td></tr>
+</table>
+</div>
+</div>
+
+<!-- S8: STRESS & PDN -->
+<div class="sec" id="s8">
+<p class="stl">Stress Analysis & Power Delivery Network</p>
+<div class="card">
+<h3>The Piezoresistive Effect — Stress as an Electrical Problem</h3>
+<p>In 3D-IC, stress is <strong>NOT</strong> just a mechanical failure risk — it is an <strong>electrical performance variable</strong>. Silicon is a piezoresistive material: when its crystal lattice is strained (by a Cu TSV with different CTE than Si), the energy bands shift, changing the effective mass of charge carriers.</p>
+<div class="g2">
+<div class="card2">
+<h4>Compressive Stress — Radial (σ_rr)</h4>
+<ul>
+<li>Acts inward toward the TSV</li>
+<li>Increases hole mobility (μₚ) — good for PMOS</li>
+<li>May decrease electron mobility (μₙ) — bad for NMOS</li>
+<li>Effect depends on crystal orientation ([100] vs [110])</li>
+</ul>
+</div>
+<div class="card2">
+<h4>Tensile Stress — Tangential (σ_θθ)</h4>
+<ul>
+<li>Acts circumferentially around TSV</li>
+<li>Opposite sign to radial stress</li>
+<li>Different mobility impact on n-type vs p-type</li>
+<li>Must analyze separately for each transistor type</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<h3>Keep-Out Zone (KOZ)</h3>
+<div class="fm">Mobility change formula:
+  Δμ/μ = π_r × σ_r
+
+  π_r = piezoresistive coefficient (Pa⁻¹)
+  σ_r = radial stress at distance r from TSV center
+
+Typical: Δμ/μ can reach ~10% near TSV</div>
+<p>Because mobility changes up to 10%, transistors near a TSV switch at <em>different speeds</em> than designed — causing <strong>timing skew</strong> (setup/hold violations). The KOZ is the exclusion zone where no timing-critical transistors are placed.</p>
+<div class="inf">Analogy: Like expansion joints in a bridge — the joint (KOZ) exists because the metal (Cu TSV) expands much more than the concrete (Si) when heated.</div>
+</div>
+<div class="card">
+<h3>Lamé Equations — Mathematical Stress Distribution</h3>
+<p>The TSV is modeled as a cylindrical Cu inclusion in an infinite Si matrix. The thermal stress at radial distance r from TSV center:</p>
+<div class="fm">Radial stress (Compressive):
+  σ_rr(r) = -(E × Δα × ΔT / 2) × (R/r)²
+
+Tangential stress (Tensile):
+  σ_θθ(r) = +(E × Δα × ΔT / 2) × (R/r)²
+
+Where:
+  E  = Young's modulus of Si (~130 GPa)
+  Δα = CTE mismatch = α_Cu - α_Si = 17 - 2.3 = 14.7 ppm/°C
+  ΔT = Temperature change from stress-free state
+  R  = TSV radius
+  r  = distance from TSV center (r ≥ R)</div>
+<div class="wi">Critical: Stress decays as 1/r². Doubling the distance from TSV center reduces stress impact by 4×. This directly determines the required KOZ radius.</div>
+</div>
+<div class="card">
+<h3>Power Delivery Network (PDN) — Inductive Noise</h3>
+<p>The PDN distributes VDD and GND through the 3D stack via TSVs. The key challenge is <strong>inductive voltage drop (ΔV)</strong> when circuits switch rapidly:</p>
+<div class="fm">V_noise = L × (dI/dt) = L × ΔI / Δt
+
+  L   = TSV path inductance (typically 5–20 pH range)
+  dI  = current step
+  dt  = switching time (picoseconds in modern circuits)</div>
+<div class="dn">If supply voltage = 1.0V and V_noise = 0.5V → 50% of supply is lost to noise — catastrophic for circuit timing and reliability!</div>
+<h4>Solution: On-Chip Decoupling Capacitors</h4>
+<p>Decap cells placed close to switching circuits provide charge locally — reducing the instantaneous dI/dt demand on the TSV path and suppressing V_noise. Mandatory in every 3D-IC PDN design.</p>
+</div>
+<div class="card">
+<h3>Testability Challenge in 3D-ICs</h3>
+<p>Once dies are stacked, individual dies cannot be probed externally. Like a strand of Christmas lights — if one "bulb" (die) fails, you cannot easily isolate which one it is.</p>
+<table>
+<tr><th>Challenge</th><th>Standard 2D Approach</th><th>3D-IC Solution</th></tr>
+<tr><td>Die testing</td><td>Probe pads accessible on die surface</td><td>Known-Good-Die (KGD) testing before stacking</td></tr>
+<tr><td>Post-stack testing</td><td>N/A (single die)</td><td>IEEE 1149.1 boundary scan; IEEE P1838 (3D test standard)</td></tr>
+<tr><td>Fault isolation</td><td>Direct probing</td><td>3D Design-for-Test (DFT) with per-die test access ports</td></tr>
+<tr><td>TSV open/short</td><td>N/A</td><td>Capacitive sensing; built-in self-test (BIST)</td></tr>
+</table>
+</div>
+</div>
+
+<!-- S9: NUMERICALS -->
+<div class="sec" id="s9">
+<p class="stl">Solved Numerical Problems</p>
+<div class="card">
+<h3>Problem 1 — TSV Resistance Calculation</h3>
+<div class="card2"><p><strong>Given:</strong> Cu TSV: diameter = 10 μm, length = 60 μm. Resistivity of Cu: ρ = 1.7 × 10⁻⁸ Ω·m. Find resistance of one TSV.</p></div>
+<div class="st"><div class="sn">1</div><div><p>Find cross-sectional area:</p>
+<div class="fm">r = d/2 = 10/2 = 5 μm = 5 × 10⁻⁶ m
+A = π × r² = π × (5 × 10⁻⁶)² = π × 25 × 10⁻¹² = 78.5 × 10⁻¹² m²</div>
+</div></div>
+<div class="st"><div class="sn">2</div><div><p>Apply R = ρL/A:</p>
+<div class="fm">R = (1.7 × 10⁻⁸) × (60 × 10⁻⁶) / (78.5 × 10⁻¹²)
+R = (1.02 × 10⁻¹²) / (78.5 × 10⁻¹²)
+R ≈ 0.013 Ω = 13 mΩ</div>
+</div></div>
+<div class="suc">Result: R_TSV ≈ 13 mΩ. Very low resistance confirms Cu TSVs are excellent conductors for short vertical interconnects.</div>
+</div>
+<div class="card">
+<h3>Problem 2 — Thermal Stacking (Temperature Calculation)</h3>
+<div class="card2"><p><strong>Given:</strong> 2-layer 3D stack. Die 1 (Bottom) = 10W, Die 2 (Top) = 10W. Rθ (Die2→Die1) = 0.5°C/W. Rθ (Die1→Heatsink) = 0.2°C/W. T_Heatsink = 40°C. Find T of Die 2.</p></div>
+<div class="st"><div class="sn">1</div><div><p>ΔT from Die 2 to Die 1 (only Die 2's power flows through this resistance):</p>
+<div class="fm">ΔT₂→₁ = P_Die2 × Rθ(2→1) = 10 W × 0.5 °C/W = 5°C</div>
+</div></div>
+<div class="st"><div class="sn">2</div><div><p>Total power flowing through Rθ (Die1→Heatsink) = both dies' power combined:</p>
+<div class="fm">P_total = P_Die1 + P_Die2 = 10 + 10 = 20 W
+ΔT₁→Sink = 20 W × 0.2 °C/W = 4°C</div>
+</div></div>
+<div class="st"><div class="sn">3</div><div><p>T_Die2 = sum all ΔT from heatsink upward:</p>
+<div class="fm">T_Die2 = T_Sink + ΔT₁→Sink + ΔT₂→₁
+T_Die2 = 40 + 4 + 5 = 49°C</div>
+</div></div>
+<div class="suc">Result: T_Die2 = 49°C. Note: the bottom die's power also heats the top die, since all heat flows through the same thermal path to the heatsink.</div>
+</div>
+<div class="card">
+<h3>Problem 3 — Piezoresistive Impact (Mobility Change)</h3>
+<div class="card2"><p><strong>Given:</strong> PMOS transistor placed 10 μm from TSV center. Radial stress σ_r = 150 MPa. Piezoresistive coefficient for holes: π_r = 6.6 × 10⁻¹⁰ Pa⁻¹. Calculate Δμ/μ (percentage mobility change).</p></div>
+<div class="st"><div class="sn">1</div><div><p>Convert stress to SI units:</p>
+<div class="fm">σ_r = 150 MPa = 150 × 10⁶ Pa</div>
+</div></div>
+<div class="st"><div class="sn">2</div><div><p>Apply piezoresistive formula:</p>
+<div class="fm">Δμ/μ = π_r × σ_r
+Δμ/μ = (6.6 × 10⁻¹⁰ Pa⁻¹) × (150 × 10⁶ Pa)
+Δμ/μ = 6.6 × 150 × 10⁻⁴ = 990 × 10⁻⁴ = 0.099</div>
+</div></div>
+<div class="st"><div class="sn">3</div><div><p>Convert to percentage:</p>
+<div class="fm">Δμ/μ ≈ 9.9% change in hole mobility</div>
+</div></div>
+<div class="dn">Teaching point: ~10% mobility change causes timing violations (setup/hold failures). This MUST be compensated in design via KOZ enforcement — no timing-critical transistors within the stress zone of TSVs.</div>
+</div>
+<div class="card">
+<h3>Problem 4 — PDN Inductive Voltage Drop</h3>
+<div class="card2"><p><strong>Given:</strong> 3D-IC top die switches 5A of current in 100 ps. Total TSV path inductance L = 10 pH. Calculate V_noise (inductive voltage drop).</p></div>
+<div class="st"><div class="sn">1</div><div><p>Write the inductive voltage formula:</p>
+<div class="fm">V_noise = L × (dI/dt)</div>
+</div></div>
+<div class="st"><div class="sn">2</div><div><p>Calculate rate of current change:</p>
+<div class="fm">dI/dt = ΔI / Δt = 5 A / (100 × 10⁻¹² s) = 5 × 10¹⁰ A/s</div>
+</div></div>
+<div class="st"><div class="sn">3</div><div><p>Compute voltage drop:</p>
+<div class="fm">V_noise = L × (dI/dt)
+V_noise = (10 × 10⁻¹² H) × (5 × 10¹⁰ A/s)
+V_noise = 10 × 0.05 = 0.5 V</div>
+</div></div>
+<div class="dn">Teaching point: Supply = 1.0V but V_noise = 0.5V → 50% of supply rail lost to inductive noise! This is why on-chip decoupling capacitors (decaps) are MANDATORY in every 3D-IC PDN design. Without decaps, circuits fail to operate correctly.</div>
+</div>
+</div>
+
+<script>
+var secs=document.querySelectorAll('.sec');
+var btns=document.querySelectorAll('.nb');
+function show(i){
+  secs.forEach(function(s,j){s.style.display=j===i?'block':'none'});
+  btns.forEach(function(b,j){b.classList.toggle('act',j===i)});
+}
+show(0);
+</script>
